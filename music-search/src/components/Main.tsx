@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Card, Col, Container, Form, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { Track } from '../typings'
+import MyNavBar from './MyNavBar'
 
 const searchEndpoint = "https://striveschool-api.herokuapp.com/api/deezer/search?q="
 
@@ -30,10 +31,11 @@ export default function Main() {
     }
 
     return <Container>
+        <MyNavBar />
         <Row>
             <Col xs={10} md={8} className="mx-auto">
                 <Form onSubmit={handleSubmit}>
-                    <Form.Control type="search" value={query} onChange={handleChange} />
+                    <Form.Control type="search" placeholder="Search for song, artist or album" value={query} onChange={handleChange} />
                 </Form>
             </Col>
             <Col xs={10} md={8} className="mx-auto my-3">

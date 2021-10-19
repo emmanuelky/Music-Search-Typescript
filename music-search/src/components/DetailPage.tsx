@@ -3,6 +3,7 @@ import { useParams } from "react-router"
 import { TrackDetail } from "../typings"
 
 import { Container, Row, Image, Col } from 'react-bootstrap'
+import MyNavBar from "./MyNavBar"
 
 interface DetailPageParams {
     id: string
@@ -29,6 +30,7 @@ export default function DetailPage() {
     return (
         trackDetails
             ? <Container>
+                <MyNavBar />
                 <Row>
                     <Col xs={10}>
                         <Image fluid src={trackDetails.album.cover_big} />
