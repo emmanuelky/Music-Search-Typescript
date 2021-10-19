@@ -6,7 +6,7 @@ import MyNavBar from './MyNavBar'
 
 const searchEndpoint = "https://striveschool-api.herokuapp.com/api/deezer/search?q="
 
-export default function Main() {
+const Main = () => {
 
 
     const [query, setQuery] = useState('')
@@ -30,35 +30,42 @@ export default function Main() {
 
     }
 
-    return <Container>
-        <MyNavBar />
-        <Row>
-            <Col xs={10} md={8} className="mx-auto">
-                <Form onSubmit={handleSubmit}>
-                    <Form.Control type="search" placeholder="Search for song, artist or album" value={query} onChange={handleChange} />
-                </Form>
-            </Col>
-            <Col xs={10} md={8} className="mx-auto my-3">
+    return (
+
+        <div>
+
+            <Container>
+                <MyNavBar />
                 <Row>
-                    {
-                        results.map(track => (
-                            <Col xs={10} md={4}>
-                                <Link to={`details/${track.id}`}>
-                                    <Card>
-                                        <Card.Img variant="top" src={track.album.cover_medium} />
-                                        <Card.Body>
-                                            <Card.Title>{track.title}</Card.Title>
-                                            <Card.Text>
-                                                {track.artist.name}
-                                            </Card.Text>
-                                        </Card.Body>
-                                    </Card>
-                                </Link>
-                            </Col>
-                        ))
-                    }
+                    <Col xs={10} md={8} className="mx-auto">
+                        <Form onSubmit={handleSubmit}>
+                            <Form.Control type="search" placeholder="Search for song, artist or album" value={query} onChange={handleChange} />
+                        </Form>
+                    </Col>
+                    <Col xs={10} md={8} className="mx-auto my-3">
+                        <Row>
+                            {
+                                results.map(track => (
+                                    <Col xs={10} md={4}>
+                                        <Link to={`details/${track.id}`}>
+                                            <Card>
+                                                <Card.Img variant="top" src={track.album.cover_medium} />
+                                                <Card.Body>
+                                                    <Card.Title>{track.title}</Card.Title>
+                                                    <Card.Text>
+                                                        {track.artist.name}
+                                                    </Card.Text>
+                                                </Card.Body>
+                                            </Card>
+                                        </Link>
+                                    </Col>
+                                ))
+                            }
+                        </Row>
+                    </Col>
                 </Row>
-            </Col>
-        </Row>
-    </Container>
+            </Container>
+        </div>)
 }
+
+export default Main
