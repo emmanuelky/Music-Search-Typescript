@@ -31,7 +31,7 @@ export default function DetailPage() {
 
     return (
         trackDetails
-            ? <Container className="  bg-gray-800 h-screen w-screen text-gray-200 ">
+            ? <Container className="  bg-gray-800 h-100 w-100 text-gray-200 ">
                 <MyNavBar />
                 <Row className='flex flex-col align-items-center my-5'>
                     <Col xs={10} >
