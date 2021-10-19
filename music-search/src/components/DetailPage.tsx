@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router"
 import { TrackDetail } from "../typings"
+import { Link } from 'react-router-dom'
+
 
 import { Container, Row, Image, Col } from 'react-bootstrap'
 import MyNavBar from "./MyNavBar"
@@ -29,15 +31,19 @@ export default function DetailPage() {
 
     return (
         trackDetails
-            ? <Container>
+            ? <Container className="  bg-gray-800 h-screen w-screen text-gray-200 ">
                 <MyNavBar />
-                <Row>
-                    <Col xs={10}>
-                        <Image fluid src={trackDetails.album.cover_big} />
-                        <h4>{trackDetails.title}</h4>
-                        <h6>{trackDetails.artist.name}</h6>
+                <Row className='flex flex-col align-items-center my-5'>
+                    <Col xs={10} >
+                        <Image className="my-4 rounded-lg mx-auto" fluid src={trackDetails.album.cover_big} />
+                        <h4 className="text-center">{trackDetails.title}</h4>
+                        <h6 className="text-center">{trackDetails.artist.name}</h6>
                     </Col>
                 </Row>
+                <Link to='/'>
+
+                    <button>Back Home</button>
+                </Link>
             </Container>
 
             : null

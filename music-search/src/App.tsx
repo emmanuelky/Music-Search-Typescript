@@ -6,9 +6,11 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 function App() {
   return (
+
     <BrowserRouter>
       <Route exact path="/" component={Main} />
       <Route exact path="/details/:id" component={DetailPage} />
+
     </BrowserRouter>
   );
 }
